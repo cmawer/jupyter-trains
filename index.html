@@ -12297,7 +12297,13 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Hi, my name is Chloe Mawer and I am a data scientist at SVDS, which is a small boutique consulting company based out of Mountain View, California that focuses on transforming businesses through data strategy, data science and data engineering work. We have projects with clients from a wide range of industries. We also run a number of projects as part of our R&amp;D program to develop new skills and capabilities as well as give back to the community - both tech and otherwise. One of these projects is focused on the Caltrain...</p>
+<ul>
+<li>DS</li>
+<li>Mountain View, CA </li>
+<li>3 years</li>
+<li>Projects with clients from lots of industries</li>
+<li>Also R&amp;D to dev new skills and give back to communtity</li>
+</ul>
 
 </div>
 </div>
@@ -12348,7 +12354,12 @@ which for those of you who don't know, is a train that runs from San francisco d
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So first of all, as I explained the Caltrain is a commuter train between SF and San Jose that ~50,000 people use weekly, including a large portion of our company. We have a long history with the Caltrain. One of the first meetings of our first employees took place at a cafe right next to tracks during happy hour (also known as rush hour). Our first office was right next to the Sunnyvale station in a very old building where we heard every horn as the train passed.  We would have to put clients on hold and if you had meetings anytime between 8 and 10 or after 4, it became quite trying. Luckily we moved offices to Mountain View where we are still right on the tracks near the Castro street station but we are thankful every day for our noise proofing. What bothered us even more though than the horn blowing was the unpredictability of the train's departure times. The estimated departure times from the signs at the station and the website were often completely wrong. the train may have just left on time but it would still say the the train was delayed or it'll say it is on time until it is not and then just predict the departure to be however many minutes late it already is. Our goal has been to improve departure prediction times and provide them through an app.</p>
+<ul>
+<li>~50,000 weekly including many of our company</li>
+<li>Long history - early meeting took place outside at happy hour (aka rush hour)</li>
+<li>First office</li>
+<li>Annoyed with lack of adequate predictions </li>
+</ul>
 
 </div>
 </div>
@@ -12362,17 +12373,22 @@ which for those of you who don't know, is a train that runs from San francisco d
 <center><img src="figures/caltrain_tweet.jpg" alt="Tweet" width="425" style="horizontal-align:middle"></center>
 </div>
 </div>
-</div>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I will warn you here, Caltrain is not our client, they did not ask us to d othis. However, they did appreciate our work such as this post.</p>
+<ul>
+<li>Warn Caltrain not client </li>
+<li>But appreciate our work</li>
+</ul>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12381,7 +12397,22 @@ which for those of you who don't know, is a train that runs from San francisco d
 <center><img src="figures/appdemo.gif" alt="AppScreenShots" width="350"></center>
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Want to predict Caltrain delays </li>
+<li>No adequate data</li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12401,7 +12432,10 @@ which for those of you who don't know, is a train that runs from San francisco d
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>However, the data we need to predict delays is prior departure data. This data however, is uncertain. The only available data is from the Caltrain website, which only displays estimated delay and does not record specifically when the train has left. The only thing that happens is that train no longer shows up for a station once it has left. We however did not know the certainty of this data and so decided to use our location on the tracks to check.</p>
+<ul>
+<li>Only data is that which shows up on the sign </li>
+<li>Have to infer, disappearance means departure</li>
+</ul>
 
 </div>
 </div>
@@ -12429,7 +12463,12 @@ which for those of you who don't know, is a train that runs from San francisco d
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We thought maybe we could ues a video recording of the train tracks to detect when a train was coming. As well as it's direction. If possible, we could set up a Raspberry pi with the detector running in real-time. However, our first step was to develop a proof of concept that would prove we could indeed detect the train using video before spending the time on making it deployable.</p>
+<ul>
+<li>Take advantage of location</li>
+<li>Maybe we can use video to detect train and direction</li>
+<li>If possible, set up Raspberry Pi in real-time </li>
+<li>First step, POC to prove we should put resources into making it deployable</li>
+</ul>
 
 </div>
 </div>
@@ -12446,7 +12485,21 @@ which for those of you who don't know, is a train that runs from San francisco d
 </video>
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>A while ago, set out to develop a PoC to see if this would be worth setting up</li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12471,7 +12524,9 @@ which for those of you who don't know, is a train that runs from San francisco d
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The requirements for the the way in which I developed this poc included.. For these reasons, we find on client projects, Jupyter notebooks provide a great medium for analysis and development.</p>
+<ul>
+<li>What I want in developing a PoC like this or those for clients is</li>
+</ul>
 
 </div>
 </div>
