@@ -12293,11 +12293,39 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hi, my name is Chloe Mawer and I am a data scientist at SVDS, which is a small boutique consulting company based out of Mountain View, California that focuses on transforming businesses through data strategy, data science and data engineering work. We have projects with clients from a wide range of industries. We also run a number of projects as part of our R&amp;D program to develop new skills and capabilities as well as give back to the community - both tech and otherwise. One of these projects is focused on the Caltrain...</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Agenda">Agenda<a class="anchor-link" href="#Agenda">&#182;</a></h1><p><img src="figures/agenda.png" alt="Window" align="left" width="700"></p>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Quick intro</li>
-<li>SVDS intro</li>
+<li>is a train from SF to SJ</li>
+<li>Will tell about project</li>
+<li>some work on a proof of concept </li>
+<li>Why we usually use jupyter notebooks for such projects</li>
+<li>Best practices for data c
+which for those of you who don't know, is a train that runs from San francisco down to San Jose and further. Today, I'm going to tell you a bit about our Caltrain project, some work that I did on a proof of concept and then discuss why we usually use Jupyter Notebooks for such data science projects. Then I will focus on some best practices that will allow this medium to be fully utilized for not only developing data scientists, but other data scientists who consume their work and managers and stakeholders that wish to make decisions from it, focusing on two major aspects - communication and reproducibility. Lastly, I will walk you through a Jupyter Notebook that was the product of my proof of concept work, where you'll get to see a JN in action as well as learn a little bit about motion detection. </li>
 </ul>
 
 </div>
@@ -12305,29 +12333,49 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Agenda">Agenda<a class="anchor-link" href="#Agenda">&#182;</a></h1><p><img src="figures/agenda.png" alt="Window" align="left" width="700"></p>
-
+<div class="prompt input_prompt">
 </div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="figures/caltrain_header.jpg" alt="CaltrainHeader" width="960" height="200"></p>
 <h2 id="The-Caltrain-obsession">The Caltrain obsession<a class="anchor-link" href="#The-Caltrain-obsession">&#182;</a></h2>
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So first of all, as I explained the Caltrain is a commuter train between SF and San Jose that ~50,000 people use weekly, including a large portion of our company. We have a long history with the Caltrain. One of the first meetings of our first employees took place at a cafe right next to tracks during happy hour (also known as rush hour). Our first office was right next to the Sunnyvale station in a very old building where we heard every horn as the train passed.  We would have to put clients on hold and if you had meetings anytime between 8 and 10 or after 4, it became quite trying. Luckily we moved offices to Mountain View where we are still right on the tracks near the Castro street station but we are thankful every day for our noise proofing. What bothered us even more though than the horn blowing was the unpredictability of the train's departure times. The estimated departure times from the signs at the station and the website were often completely wrong. the train may have just left on time but it would still say the the train was delayed or it'll say it is on time until it is not and then just predict the departure to be however many minutes late it already is. Our goal has been to improve departure prediction times and provide them through an app.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <center><img src="figures/caltrain_tweet.jpg" alt="Tweet" width="425" style="horizontal-align:middle"></center>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I will warn you here, Caltrain is not our client, they did not ask us to d othis. However, they did appreciate our work such as this post.</p>
+
+</div>
+</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <center><img src="figures/appdemo.gif" alt="AppScreenShots" width="350"></center>
@@ -12335,6 +12383,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br />
@@ -12344,8 +12394,22 @@ Silicon Valley Data Science | @SVDataScience </h3>
 <h1 id="Did-the-train-really-leave?">Did the train really leave?<a class="anchor-link" href="#Did-the-train-really-leave?">&#182;</a></h1>
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>However, the data we need to predict delays is prior departure data. This data however, is uncertain. The only available data is from the Caltrain website, which only displays estimated delay and does not record specifically when the train has left. The only thing that happens is that train no longer shows up for a station once it has left. We however did not know the certainty of this data and so decided to use our location on the tracks to check.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br />
@@ -12358,8 +12422,22 @@ Silicon Valley Data Science | @SVDataScience </h3>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We thought maybe we could ues a video recording of the train tracks to detect when a train was coming. As well as it's direction. If possible, we could set up a Raspberry pi with the detector running in real-time. However, our first step was to develop a proof of concept that would prove we could indeed detect the train using video before spending the time on making it deployable.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Proof-of-concept-(POC)">Proof of concept (POC)<a class="anchor-link" href="#Proof-of-concept-(POC)">&#182;</a></h1><p><br /></p>
@@ -12370,6 +12448,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Proof-of-concept">Proof of concept<a class="anchor-link" href="#Proof-of-concept">&#182;</a></h1><ul>
@@ -12384,8 +12464,22 @@ Silicon Valley Data Science | @SVDataScience </h3>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The requirements for the the way in which I developed this poc included.. For these reasons, we find on client projects, Jupyter notebooks provide a great medium for analysis and development.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <center><img src="figures/jupyterplus.svg" alt="Jupyter" width="450"></center>
@@ -12393,6 +12487,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="figures/jupyter.png" alt="Jupyter" width="250" align='right'>
@@ -12402,6 +12498,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
@@ -12425,6 +12523,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="figures/jupyter.png" alt="Jupyter" width="250" align='right'>
@@ -12434,6 +12534,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
@@ -12451,6 +12553,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Why-use-the-Jupyter-Notebook?">Why use the Jupyter Notebook?<a class="anchor-link" href="#Why-use-the-Jupyter-Notebook?">&#182;</a></h1><ul>
@@ -12465,13 +12569,29 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Jupyter-notebook-for-everyone">Jupyter notebook for everyone<a class="anchor-link" href="#Jupyter-notebook-for-everyone">&#182;</a></h1>
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For these reasons, jupyter notebook becomes an effective development medium for not only the developin gdata scientist, but also others he/she works with as well as the stakeholders and managers that consume their work.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Me,-me,-me">Me, me, me<a class="anchor-link" href="#Me,-me,-me">&#182;</a></h1>
@@ -12480,6 +12600,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
@@ -12495,6 +12617,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </aside><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>If properly used, Jupyter notebooks can for data scientists:</p>
@@ -12509,6 +12633,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Others-like-me">Others like me<a class="anchor-link" href="#Others-like-me">&#182;</a></h1>
@@ -12517,6 +12643,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
@@ -12532,6 +12660,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </aside><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>For other data scientists:</p>
@@ -12546,6 +12676,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Not-me">Not me<a class="anchor-link" href="#Not-me">&#182;</a></h1>
@@ -12554,6 +12686,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
@@ -12567,6 +12701,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </aside><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>For managers:</p>
@@ -12585,6 +12721,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Basic-requirements">Basic requirements<a class="anchor-link" href="#Basic-requirements">&#182;</a></h1><ul>
@@ -12596,6 +12734,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="To-enable:">To enable:<a class="anchor-link" href="#To-enable:">&#182;</a></h1><ul>
@@ -12609,6 +12749,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Communication">Communication<a class="anchor-link" href="#Communication">&#182;</a></h1>
@@ -12616,6 +12758,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Communicating-to-future-me">Communicating to future me<a class="anchor-link" href="#Communicating-to-future-me">&#182;</a></h1><ul>
@@ -12630,6 +12774,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Communicating-to-other-data-scientists">Communicating to other data scientists<a class="anchor-link" href="#Communicating-to-other-data-scientists">&#182;</a></h1><ul>
@@ -12642,6 +12788,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Communicating-to-non-data-scientists">Communicating to non-data scientists<a class="anchor-link" href="#Communicating-to-non-data-scientists">&#182;</a></h1><ul>
@@ -12655,6 +12803,8 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Template-and-automate">Template and automate<a class="anchor-link" href="#Template-and-automate">&#182;</a></h1>
@@ -12663,31 +12813,50 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div><div class="fragment"><br />
 <iframe src="data-day-seattle-template-demo.html" width="960" height="500"></iframe></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Template-and-automate">Template and automate<a class="anchor-link" href="#Template-and-automate">&#182;</a></h1>
 </div>
 </div>
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In <code>.bashrc</code> file:</p>
 <p><code>newnb (){cp /path/to/template/template.ipynb $(date +"%Y-%m-%d")-initials-$1.ipynb}</code></p>
+<p>So <code>newnb data-day-seattle-demo</code> results in a file: <code>2016-07-23-cmm-data-day-seattle-demo.ipynb</code></p>
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Call-out-boxes">Call out boxes<a class="anchor-link" href="#Call-out-boxes">&#182;</a></h1>
 </div>
 </div>
-</div><div class="fragment"><br />
-<iframe src="data-day-seattle-template-demo-no-toc.html#Related-notebooks" width="960" height="400"></iframe><aside class="notes">
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<img src="figures/alert-boxes.png" alt="CaltrainHeader" width="960" height="200"></p>
+
+</div>
+</div>
+</div><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Mention ability to process html, markdown</p>
@@ -12697,15 +12866,29 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </aside></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="ToC2-Extension">ToC2 Extension<a class="anchor-link" href="#ToC2-Extension">&#182;</a></h1>
 </div>
 </div>
-</div><div class="fragment"><br />
-<iframe src="data-day-seattle-template-demo.html" width="960" height="500"></iframe><aside class="notes">
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<img src="figures/toc.png" alt="CaltrainHeader" width="960" height="200"></p>
+
+</div>
+</div>
+</div><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What are extensions?</p>
@@ -12713,18 +12896,26 @@ Silicon Valley Data Science | @SVDataScience </h3>
 </div>
 </div>
 </div>
-</aside></div></section></section><section><section>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Hiding-code">Hiding code<a class="anchor-link" href="#Hiding-code">&#182;</a></h1>
 </div>
 </div>
-</div>
+</div><br />
+<iframe src="data-day-seattle-template-demo.html" width="960" height="500"></iframe></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<pre> &lt;script&gt;
+<h1 id="Hiding-code">Hiding code<a class="anchor-link" href="#Hiding-code">&#182;</a></h1>
+</div>
+</div>
+</div><pre> &lt;script&gt;
 code_show=true; 
 function code_toggle() {
  if (code_show){
@@ -12737,27 +12928,30 @@ function code_toggle() {
 $( document ).ready(code_toggle);
 &lt;/script&gt;
 &lt;form action=&quot;javascript:code_toggle()&quot;&gt;
-&lt;input type=&quot;submit&quot; value=&quot;Click here to toggle on/off the raw code.&quot;&gt;&lt;/form&gt; </pre>
-</div>
-</div>
-</div></section></section><section><section>
+&lt;input type=&quot;submit&quot; value=&quot;Click here to toggle on/off the raw code.&quot;&gt;&lt;/form&gt; </pre></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Hiding-code">Hiding code<a class="anchor-link" href="#Hiding-code">&#182;</a></h1>
+<div class="prompt input_prompt">
 </div>
-</div>
-</div><br />
-<iframe src="data-day-seattle-template-demo.html" width="960" height="500"></iframe></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Keep-everything-connected">Keep everything connected<a class="anchor-link" href="#Keep-everything-connected">&#182;</a></h1>
 </div>
 </div>
-</div><div class="fragment"><br />
-<iframe src="data-day-seattle-template-demo.html#Related-notebooks" width="960" height="400"></iframe></div></section></section><section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<img src="figures/related-nbs.png" alt="CaltrainHeader" width="560"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Knowing-when-to-stop">Knowing when to stop<a class="anchor-link" href="#Knowing-when-to-stop">&#182;</a></h1>
@@ -12765,6 +12959,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Reproducibility">Reproducibility<a class="anchor-link" href="#Reproducibility">&#182;</a></h1>
@@ -12772,48 +12968,52 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Environment">Environment<a class="anchor-link" href="#Environment">&#182;</a></h1><ul>
-<li>List packages</li>
-</ul>
-
+<div class="prompt input_prompt">
 </div>
-</div>
-</div><div class="fragment"><br />
-<iframe src="data-day-seattle-template-demo-code.html#Setup" width="960" height="500"></iframe></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Environment">Environment<a class="anchor-link" href="#Environment">&#182;</a></h1><ul>
 <li><code>requirements.txt</code></li>
 <li>Docker container</li>
+<li>List packages</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="figures/packages.png" alt="CaltrainHeader" width="960" height="200"></p>
 
 </div>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="The-Data">The Data<a class="anchor-link" href="#The-Data">&#182;</a></h1>
 </div>
 </div>
-</div><div class="fragment"><br />
-<iframe src="data-day-seattle-template-demo-no-toc.html#Data-input" width="960" height="200"></iframe></div><div class="fragment">
+</div>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>If applicable, point to exact file used to create dataset</li>
-<li>Define exact time interval involved</li>
-<li>Describe any filters, population characteristics</li>
-</ul>
+<p><br />
+<img src="figures/data-input.png" alt="CaltrainHeader" width="960" height="200"></p>
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Analysis-is-never-linear,-but-code-is">Analysis is never linear, but code is<a class="anchor-link" href="#Analysis-is-never-linear,-but-code-is">&#182;</a></h1>
@@ -12822,6 +13022,8 @@ $( document ).ready(code_toggle);
 </div><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
@@ -12835,6 +13037,8 @@ $( document ).ready(code_toggle);
 </div>
 </aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Think-before-you-add-any-code-above">Think before you add any code above<a class="anchor-link" href="#Think-before-you-add-any-code-above">&#182;</a></h1>
@@ -12842,6 +13046,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Don't-delete">Don't delete<a class="anchor-link" href="#Don't-delete">&#182;</a></h1>
@@ -12849,6 +13055,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Scratch-Pad-Extension">Scratch Pad Extension<a class="anchor-link" href="#Scratch-Pad-Extension">&#182;</a></h1><p><img src="figures/scratchpad.gif" alt="Scratchpad" width="600" align='left'></p>
@@ -12857,6 +13065,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="ExecuteTime-Extension">ExecuteTime Extension<a class="anchor-link" href="#ExecuteTime-Extension">&#182;</a></h1><center><img src="figures/executetime.png" alt="End" width="960"></center>
@@ -12864,6 +13074,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Pay-attention-to-inputs-and-outputs">Pay attention to inputs and outputs<a class="anchor-link" href="#Pay-attention-to-inputs-and-outputs">&#182;</a></h1>
@@ -12871,6 +13083,8 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="figures/inout1.png" alt="End" width="160" align="right">
@@ -12880,6 +13094,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Pay-attention-to-inputs-and-outputs">Pay attention to inputs and outputs<a class="anchor-link" href="#Pay-attention-to-inputs-and-outputs">&#182;</a></h1><center><img src="figures/dag.png" alt="End" width="360" align="center"></center>
@@ -12887,6 +13103,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Lastly...-know-when-to-get-out-of-the-notebook">Lastly... know when to get out of the notebook<a class="anchor-link" href="#Lastly...-know-when-to-get-out-of-the-notebook">&#182;</a></h1>
@@ -12894,6 +13112,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="DEMO">DEMO<a class="anchor-link" href="#DEMO">&#182;</a></h1>
@@ -12901,6 +13121,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h1>
@@ -12908,6 +13130,8 @@ $( document ).ready(code_toggle);
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <center><h4>To view SVDS speakers or to receive a copy <br /> of our slides, go to: www.svds.com/DDSea2016 </h4></center>
