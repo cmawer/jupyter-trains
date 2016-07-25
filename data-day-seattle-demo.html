@@ -665,16 +665,6 @@ $( document ).ready(function(){
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1><p><p><div class="lev1"><a href="#Introduction"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introduction</a></div><div class="lev2"><a href="#Purpose"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Purpose</a></div><div class="lev2"><a href="#Prior-work/-previous-next-steps"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Prior work/ previous next steps</a></div><div class="lev2"><a href="#Guiding-questions"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Guiding questions</a></div><div class="lev2"><a href="#Key-findings"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Key findings</a></div><div class="lev2"><a href="#Related-notebooks"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Related notebooks</a></div><div class="lev1"><a href="#A.-Setup"><span class="toc-item-num">2&nbsp;&nbsp;</span>A. Setup</a></div><div class="lev2"><a href="#Required-packages"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Required packages</a></div><div class="lev2"><a href="#Data-input"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Data input</a></div><div class="lev1"><a href="#B.-Explore"><span class="toc-item-num">3&nbsp;&nbsp;</span>B. Explore</a></div><div class="lev2"><a href="#Shape"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Shape</a></div><div class="lev2"><a href="#Visualize"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Visualize</a></div><div class="lev1"><a href="#C.-Motion-detection"><span class="toc-item-num">4&nbsp;&nbsp;</span>C. Motion detection</a></div><div class="lev2"><a href="#1.-Convert-each-frame-to-gray-scale"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>1. Convert each frame to gray scale</a></div><div class="lev2"><a href="#2.-Smooth-each-frame"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>2. Smooth each frame</a></div><div class="lev2"><a href="#3.-Create-model-of-background"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>3. Create model of background</a></div><div class="lev2"><a href="#4.-Calculate-the-difference"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>4. Calculate the difference</a></div><div class="lev2"><a href="#5.-Threshold-the-difference"><span class="toc-item-num">4.5&nbsp;&nbsp;</span>5. Threshold the difference</a></div><div class="lev1"><a href="#D1-Train-detection"><span class="toc-item-num">5&nbsp;&nbsp;</span>D1 Train detection</a></div><div class="lev1"><a href="#D2-Direction-detection"><span class="toc-item-num">6&nbsp;&nbsp;</span>D2 Direction detection</a></div><div class="lev1"><a href="#Conclusions"><span class="toc-item-num">7&nbsp;&nbsp;</span>Conclusions</a></div><div class="lev2"><a href="#Key-findings"><span class="toc-item-num">7.1&nbsp;&nbsp;</span>Key findings</a></div><div class="lev2"><a href="#Next-steps"><span class="toc-item-num">7.2&nbsp;&nbsp;</span>Next steps</a></div></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><script>
 code_show=true; 
 function code_toggle() {
@@ -691,6 +681,16 @@ $( document ).ready(code_toggle);
 </div>
 </div>
 </div><h1> Catching trains: Iterative model development with Jupyter Notebook (Demo) </h1>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1><p><p><div class="lev1"><a href="#Introduction"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introduction</a></div><div class="lev2"><a href="#Purpose"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Purpose</a></div><div class="lev2"><a href="#Prior-work/-previous-next-steps"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Prior work/ previous next steps</a></div><div class="lev2"><a href="#Guiding-questions"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Guiding questions</a></div><div class="lev2"><a href="#Key-findings"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Key findings</a></div><div class="lev2"><a href="#Related-notebooks"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Related notebooks</a></div><div class="lev1"><a href="#A.-Setup"><span class="toc-item-num">2&nbsp;&nbsp;</span>A. Setup</a></div><div class="lev2"><a href="#Required-packages"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Required packages</a></div><div class="lev2"><a href="#Data-input"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Data input</a></div><div class="lev1"><a href="#B.-Explore"><span class="toc-item-num">3&nbsp;&nbsp;</span>B. Explore</a></div><div class="lev2"><a href="#Shape"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Shape</a></div><div class="lev2"><a href="#Visualize"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Visualize</a></div><div class="lev1"><a href="#C.-Motion-detection"><span class="toc-item-num">4&nbsp;&nbsp;</span>C. Motion detection</a></div><div class="lev2"><a href="#1.-Convert-each-frame-to-gray-scale"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>1. Convert each frame to gray scale</a></div><div class="lev2"><a href="#2.-Smooth-each-frame"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>2. Smooth each frame</a></div><div class="lev2"><a href="#3.-Create-model-of-background"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>3. Create model of background</a></div><div class="lev2"><a href="#4.-Calculate-the-difference"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>4. Calculate the difference</a></div><div class="lev2"><a href="#5.-Threshold-the-difference"><span class="toc-item-num">4.5&nbsp;&nbsp;</span>5. Threshold the difference</a></div><div class="lev1"><a href="#D1-Train-detection"><span class="toc-item-num">5&nbsp;&nbsp;</span>D1 Train detection</a></div><div class="lev1"><a href="#D2-Direction-detection"><span class="toc-item-num">6&nbsp;&nbsp;</span>D2 Direction detection</a></div><div class="lev1"><a href="#Conclusions"><span class="toc-item-num">7&nbsp;&nbsp;</span>Conclusions</a></div><div class="lev2"><a href="#Key-findings"><span class="toc-item-num">7.1&nbsp;&nbsp;</span>Key findings</a></div><div class="lev2"><a href="#Next-steps"><span class="toc-item-num">7.2&nbsp;&nbsp;</span>Next steps</a></div></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -803,7 +803,7 @@ $( document ).ready(code_toggle);
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">pre</span> <span class="o">=</span> <span class="s">&#39;2016-07-11-data-day-seattle-demo-&#39;</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">pre</span> <span class="o">=</span> <span class="s">&#39;2016-07-23-data-day-seattle-demo-&#39;</span>
 </pre></div>
 
 </div>
@@ -7757,6 +7757,26 @@ IUCyLQAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>While more complex methods can require fitted statistical models for each pixel, frame differencing simply requires a representative image as the background model. Basic options for this representative model include a stationary image deemed as background by the user and the average of the last <em>n</em> images. In our POC, we employ a running average, which is still simple to implement and requires minimal computation but also is able to adapt to changing conditions over time. The running average is calculated for a given pixel (<em>x</em>,<em>y</em>) at each time, <em>t</em> as:
+\begin{equation}
+R(x,y,t) = (1-\alpha)R(x,y,t-1) + \alpha F(x,y,t)
+\end{equation}
+The value $\alpha$ adjusts the weight of the current frame being averaged in and regulates the speed at which the previous frames are forgotten.</p>
+<p>To update the running average in Python, we use the function:</p>
+<center>
+<code>
+cv2.accumulateWeighted(np.float32(smooth_frame), running_avg, alpha)
+</code>
+</center><p>Since we are summing fractions of images, we need to be able to hold float values for the pixels, which requires us to convert the smooth frame that we are updating the running average with to float values.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <div class="alert alert-info"> Defining weighting coefficient for running average, <code>alpha</code> </div>
 </div>
 </div>
@@ -7871,6 +7891,19 @@ IUCyLQAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="5.-Threshold-the-difference">5. Threshold the difference<a class="anchor-link" href="#5.-Threshold-the-difference">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we see in the above video, we detect variations in pixel values in locations and at times other than where and when the train is passing, such as when leaves are rustling. One way to remove some of the small-scale movements is to count only large fluctuations in pixel values as motion. We do this by setting a threshold value and setting all differences higher than this value as motion using the <a href="http://docs.opencv.org/2.4/modules/imgproc/doc/miscellaneous_transformations.html?highlight=threshold#threshold"><code>cv2.threshold()</code></a> function:</p>
+<p><center><code>_, subtracted = cv2.threshold(diff, motion_thresh, 1, cv2.THRESH_BINARY)</code></center>
+<br /></p>
+<p>This function sets any value in <code>diff</code> that is greater than <code>motion_thresh</code> to 1 and leaves all other pixels as zero. Applying this function to the prior video of differences using a threshold of 35, we get the following video, where white area denotes motion (<code>diff &gt; 35</code>) and black area is considered stationary (<code>diff &lt;=35</code>):</p>
+
 </div>
 </div>
 </div>
@@ -10455,49 +10488,6 @@ iIiIiEgL+w9I1zeuEbgC0gAAAABJRU5ErkJggg==
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="sd">&quot;&quot;&quot;Sometimes, OpenCV has problems with ingesting </span>
-<span class="sd">.avi video files. If it does, you can use this code</span>
-<span class="sd">to load the file.&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">original</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;video/test.avi&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="nb">bytes</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;\xff\xd8&#39;</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;\xff\xd9&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="nb">bytes</span><span class="p">):</span>
-    <span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">()]</span>
-<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">p2</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="nb">bytes</span><span class="p">):</span>
-    <span class="n">b</span> <span class="o">+=</span> <span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">()]</span>
-<span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="n">jpg</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">[</span><span class="n">c</span><span class="p">:</span><span class="n">d</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">original</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">imdecode</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">jpg</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
