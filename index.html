@@ -1,10 +1,64 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
-<title>data-day-seattle-template-demo</title>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>data-day-seattle-slides slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -12146,263 +12200,211 @@ hr {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
+  overflow-y: scroll;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
-
-@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
+</head>
+
+
 <body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-<script>
-code_show=true; 
-function code_toggle() {
- if (code_show){
- $('div.input').hide();
- } else {
- $('div.input').show();
- }
- code_show = !code_show
-} 
-$( document ).ready(code_toggle);
-</script>
-<form action="javascript:code_toggle()"><input type="submit" value="Click here to toggle on/off the raw code."></form><h1> Template </h1>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1><p><p><div class="lev1"><a href="#Introduction"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introduction</a></div><div class="lev2"><a href="#Purpose"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Purpose</a></div><div class="lev2"><a href="#Prior-work/-previous-next-steps"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Prior work/ previous next steps</a></div><div class="lev2"><a href="#Guiding-questions"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Guiding questions</a></div><div class="lev2"><a href="#Key-findings"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Key findings</a></div><div class="lev2"><a href="#Related-notebooks"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Related notebooks</a></div><div class="lev1"><a href="#Setup"><span class="toc-item-num">2&nbsp;&nbsp;</span>Setup</a></div><div class="lev2"><a href="#Required-packages"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Required packages</a></div><div class="lev2"><a href="#Data-input"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Data input</a></div><div class="lev1"><a href="#Analysis"><span class="toc-item-num">3&nbsp;&nbsp;</span>Analysis</a></div><div class="lev1"><a href="#Conclusions"><span class="toc-item-num">4&nbsp;&nbsp;</span>Conclusions</a></div><div class="lev2"><a href="#Key-findings"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Key findings</a></div><div class="lev2"><a href="#Next-steps"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>Next steps</a></div></p>
+<p><img src="figures/svds.png" alt="SVDS" width="100" align="right"></p>
+<h1 id="Catching-trains:-Iterative-model-development-with-Jupyter-Notebook">Catching trains: Iterative model development with Jupyter Notebook<a class="anchor-link" href="#Catching-trains:-Iterative-model-development-with-Jupyter-Notebook">&#182;</a></h1><h3 id="Data-Day-Seattle-2016">Data Day Seattle 2016<a class="anchor-link" href="#Data-Day-Seattle-2016">&#182;</a></h3><h3>chloe@svds.com | @chloemawer <br />
+Silicon Valley Data Science | @SVDataScience </h3>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Agenda">Agenda<a class="anchor-link" href="#Agenda">&#182;</a></h1><p><img src="figures/agenda.png" alt="Window" align="left" width="700"></p>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1>
+<p><img src="figures/caltrain_header.jpg" alt="CaltrainHeader" width="960" height="200"></p>
+<h2 id="The-Caltrain-obsession">The Caltrain obsession<a class="anchor-link" href="#The-Caltrain-obsession">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Purpose">Purpose<a class="anchor-link" href="#Purpose">&#182;</a></h2>
+<center><img src="figures/caltrain_tweet.jpg" alt="Tweet" width="425" style="horizontal-align:middle"></center>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Prior-work/-previous-next-steps">Prior work/ previous next steps<a class="anchor-link" href="#Prior-work/-previous-next-steps">&#182;</a></h2>
+<center><img src="figures/appdemo.gif" alt="AppScreenShots" width="350"></center>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Guiding-questions">Guiding questions<a class="anchor-link" href="#Guiding-questions">&#182;</a></h2><ul>
-<li>Guiding question 1</li>
-<li>Guiding question 2</li>
+<p><br />
+<br />
+<img src="figures/caltrain-sign.jpg" alt="Window" align="right" width="400">
+<br /></p>
+<h1 id="Did-the-train-really-leave?">Did the train really leave?<a class="anchor-link" href="#Did-the-train-really-leave?">&#182;</a></h1>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<br />
+<img src="figures/train_in_window.jpg" alt="Window" align="right" width="400">
+<br />
+<br />
+<br /></p>
+<h1 id="Did-the-train-really-leave?">Did the train really leave?<a class="anchor-link" href="#Did-the-train-really-leave?">&#182;</a></h1><p><br /></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Proof-of-concept-(POC)">Proof of concept (POC)<a class="anchor-link" href="#Proof-of-concept-(POC)">&#182;</a></h1><p><br /></p>
+<video width="640" height="480" controls>
+  <source src="video/orig.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Proof-of-concept">Proof of concept<a class="anchor-link" href="#Proof-of-concept">&#182;</a></h1><ul>
+<li>Fast, iterative development</li>
+<li>Record of prior work</li>
+<li>Easy QA/feedback</li>
+<li>Communication of results for decision making </li>
+<li>Base of work for team to iterate from</li>
+<li>Educational material </li>
+<li>Easy repurposing </li>
 </ul>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Key-findings">Key findings<a class="anchor-link" href="#Key-findings">&#182;</a></h2><ul>
-<li>Key finding 1</li>
-<li>Key finding 2</li>
-</ul>
-
+<center><img src="figures/jupyterplus.svg" alt="Jupyter" width="450"></center>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Related-notebooks">Related notebooks<a class="anchor-link" href="#Related-notebooks">&#182;</a></h2><ul>
-<li><strong>Copied from:</strong> N/A</li>
-<li><strong>Purpose of copy:</strong> N/A </li>
-<li><strong>Copied to:</strong> N/A</li>
-<li><strong>Purpose of copy:</strong> N/A</li>
-<li><strong>Related notebooks:</strong> N/A</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="alert alert-info"> Use this box for important points, reminders </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="alert alert-warning"> Use this box for important points, reminders </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Setup">Setup<a class="anchor-link" href="#Setup">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Required-packages">Required packages<a class="anchor-link" href="#Required-packages">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">install_ext</span> http://raw.github.com/jrjohansson/version_information/master/version_information.py
-<span class="o">%</span><span class="k">load_ext</span> version_information
-<span class="o">%</span><span class="k">reload_ext</span> version_information
-<span class="o">%</span><span class="k">version_information</span> numpy, matplotlib, pandas
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table><tr><th>Software</th><th>Version</th></tr><tr><td>Python</td><td>2.7.12 64bit [GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)]</td></tr><tr><td>IPython</td><td>4.2.0</td></tr><tr><td>OS</td><td>Darwin 15.5.0 x86_64 i386 64bit</td></tr><tr><td>numpy</td><td>1.11.0</td></tr><tr><td>matplotlib</td><td>1.5.1</td></tr><tr><td>pandas</td><td>0.15.1</td></tr><tr><td colspan='2'>Tue Jul 19 17:16:45 2016 PDT</td></tr></table>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#0055A7&#39;</span><span class="p">,</span> <span class="s1">&#39;#2C3E4F&#39;</span><span class="p">,</span> <span class="s1">&#39;#26C5ED&#39;</span><span class="p">,</span> <span class="s1">&#39;#00cc66&#39;</span><span class="p">,</span> 
-          <span class="s1">&#39;#D34100&#39;</span><span class="p">,</span> <span class="s1">&#39;#FF9700&#39;</span><span class="p">,</span> <span class="s1">&#39;#091D32&#39;</span><span class="p">]</span>
-<span class="n">mpl_update</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span>
-              <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span>
-              <span class="s1">&#39;figure.figsize&#39;</span><span class="p">:[</span><span class="mf">12.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">],</span>
-              <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span><span class="s1">&#39;#677385&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;lines.color&#39;</span><span class="p">:</span><span class="s1">&#39;#0055A7&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;text.color&#39;</span><span class="p">:</span><span class="s1">&#39;#677385&#39;</span><span class="p">}</span>
-<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mpl_update</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-input">Data input<a class="anchor-link" href="#Data-input">&#182;</a></h2>
+<p><img src="figures/jupyter.png" alt="Jupyter" width="250" align='right'>
+<br /></p>
+<h1 id="Jupyter-notebook">Jupyter notebook<a class="anchor-link" href="#Jupyter-notebook">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -12412,12 +12414,480 @@ $( document ).ready(code_toggle);
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><strong>File:</strong> </li>
-<li><strong>Description of data:</strong></li>
-<li><strong>Date range covered by data:</strong> </li>
-<li><strong>Included population:</strong></li>
-<li><strong>Associated query file:</strong> </li>
-<li><strong>Associated query:</strong> </li>
+<li>Born in 2011 as the IPython Notebook</li>
+<li>Browser-based interactive web app for creating documents with<ul>
+<li>Live code</li>
+<li>Explanatory text</li>
+<li>Visualizations</li>
+<li>Equations</li>
+</ul>
+</li>
+<li>Three cell types<ul>
+<li>Code</li>
+<li>Markdown and latex</li>
+<li>Straight html</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="figures/jupyter.png" alt="Jupyter" width="250" align='right'>
+<br /></p>
+<h1 id="Jupyter-notebook">Jupyter notebook<a class="anchor-link" href="#Jupyter-notebook">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>In 2014, moved to Jupyter project </li>
+<li>Supports over 40 programming languages including:<ul>
+<li>Python</li>
+<li>R</li>
+<li>Julia</li>
+<li>Scala</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Why-use-the-Jupyter-Notebook?">Why use the Jupyter Notebook?<a class="anchor-link" href="#Why-use-the-Jupyter-Notebook?">&#182;</a></h1><ul>
+<li>Aligns with how we think </li>
+<li>Documentation, code, figures, and results combined</li>
+<li>Immediate feedback during development </li>
+<li>Html, pdf, markdown, slide output options</li>
+<li>Reduces the content creation necessary for communication to other parties</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Jupyter-notebook-for-everyone">Jupyter notebook for everyone<a class="anchor-link" href="#Jupyter-notebook-for-everyone">&#182;</a></h1>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For these reasons, jupyter notebook becomes an effective development medium for not only the developin gdata scientist, but also others he/she works with as well as the stakeholders and managers that consume their work.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Me,-me,-me">Me, me, me<a class="anchor-link" href="#Me,-me,-me">&#182;</a></h1>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Quickly iterate</li>
+<li>Easily recall where certain results occurred</li>
+<li>Streamline process</li>
+<li>Reproduce</li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If properly used, Jupyter notebooks can for data scientists:</p>
+<ul>
+<li>Maximize productivity</li>
+<li>Increase learnings</li>
+<li>Reduce documentation</li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Others-like-me">Others like me<a class="anchor-link" href="#Others-like-me">&#182;</a></h1>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>QA</li>
+<li>Learn</li>
+<li>Reproduce</li>
+<li>Reuse </li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For other data scientists:</p>
+<ul>
+<li>Serve as learning materials</li>
+<li>Allow easier QA </li>
+<li>Provide starting work for new projects </li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Not-me">Not me<a class="anchor-link" href="#Not-me">&#182;</a></h1>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Make decisions</li>
+<li>Assess value </li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For managers:</p>
+<ul>
+<li>Serve as a medium to make decisions from </li>
+<li>Create a knowledge base that will lead to <ul>
+<li>Onboarding and training materials</li>
+<li>Faster analysis </li>
+<li>Higher quality work</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Basic-requirements">Basic requirements<a class="anchor-link" href="#Basic-requirements">&#182;</a></h1><ul>
+<li>Clear communication</li>
+<li>Reproduciblility </li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="To-enable:">To enable:<a class="anchor-link" href="#To-enable:">&#182;</a></h1><ul>
+<li>Streamlined scientific process</li>
+<li>Reusability</li>
+<li>Decision making</li>
+<li>QA </li>
+</ul>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Communication">Communication<a class="anchor-link" href="#Communication">&#182;</a></h1>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Communicating-to-future-me">Communicating to future me<a class="anchor-link" href="#Communicating-to-future-me">&#182;</a></h1><ul>
+<li>Why did you do that? </li>
+<li>What will you want to remember later on?</li>
+<li>What didn't work? Why not? </li>
+<li>What did I learn here? </li>
+<li>What are my next steps? </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Communicating-to-other-data-scientists">Communicating to other data scientists<a class="anchor-link" href="#Communicating-to-other-data-scientists">&#182;</a></h1><ul>
+<li>What were the limitations of this analysis? </li>
+<li>What assumptions were made? </li>
+<li>What choices were made and why? </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Communicating-to-non-data-scientists">Communicating to non-data scientists<a class="anchor-link" href="#Communicating-to-non-data-scientists">&#182;</a></h1><ul>
+<li>Who? </li>
+<li>When?</li>
+<li>Why is this important? </li>
+<li>What should the audience known when communicating this work to others?</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Template-and-automate">Template and automate<a class="anchor-link" href="#Template-and-automate">&#182;</a></h1><p><a href="https://cmawer.github.io/jupyter-trains/data-day-seattle-template-demo.html">https://cmawer.github.io/jupyter-trains/data-day-seattle-template-demo.html</a></p>
+
+</div>
+</div>
+</div><div class="fragment"><br />
+<iframe src="data-day-seattle-template-demo.html" width="960" height="500"></iframe></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Template-and-automate">Template and automate<a class="anchor-link" href="#Template-and-automate">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In <code>.bashrc</code> file:</p>
+<p><code>newnb (){cp /path/to/template/template.ipynb $(date +"%Y-%m-%d")-initials-$1.ipynb}</code></p>
+<p><code>newnb data-day-seattle-demo</code> results in a file: <code>2016-07-23-cmm-data-day-seattle-demo.ipynb</code></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Call-out-boxes">Call out boxes<a class="anchor-link" href="#Call-out-boxes">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<img src="figures/alert-boxes.png" alt="CaltrainHeader" width="960" height="200"></p>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mention ability to process html, markdown</p>
+
+</div>
+</div>
+</div>
+</aside></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="ToC2-Extension">ToC2 Extension<a class="anchor-link" href="#ToC2-Extension">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<img src="figures/toc.png" alt="CaltrainHeader" width="960" height="200"></p>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What are extensions?</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Hiding-code">Hiding code<a class="anchor-link" href="#Hiding-code">&#182;</a></h1>
+</div>
+</div>
+</div><br />
+<iframe src="data-day-seattle-template-demo.html" width="960" height="500"></iframe></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Hiding-code">Hiding code<a class="anchor-link" href="#Hiding-code">&#182;</a></h1>
+</div>
+</div>
+</div><pre> &lt;script&gt;
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $(&#039div.input&#039).hide();
+ } else {
+ $(&#039div.input&#039).show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+&lt;/script&gt;
+&lt;form action=&quot;javascript:code_toggle()&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Click here to toggle on/off the raw code.&quot;&gt;&lt;/form&gt; </pre></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Keep-everything-connected">Keep everything connected<a class="anchor-link" href="#Keep-everything-connected">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<img src="figures/related-nbs.png" alt="CaltrainHeader" width="560"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Knowing-when-to-stop">Knowing when to stop<a class="anchor-link" href="#Knowing-when-to-stop">&#182;</a></h1>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Reproducibility">Reproducibility<a class="anchor-link" href="#Reproducibility">&#182;</a></h1>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Environment">Environment<a class="anchor-link" href="#Environment">&#182;</a></h1><ul>
+<li><code>requirements.txt</code></li>
+<li>Docker container</li>
+<li>List packages</li>
 </ul>
 
 </div>
@@ -12428,10 +12898,141 @@ $( document ).ready(code_toggle);
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">&#182;</a></h1>
+<p><img src="figures/packages.png" alt="CaltrainHeader" width="960" height="200"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="The-Data">The Data<a class="anchor-link" href="#The-Data">&#182;</a></h1>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br />
+<img src="figures/data-input.png" alt="CaltrainHeader" width="960" height="200"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Analysis-is-never-linear,-but-code-is">Analysis is never linear, but code is<a class="anchor-link" href="#Analysis-is-never-linear,-but-code-is">&#182;</a></h1>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Code won't know that you ran all of this and then added something up above. </li>
+<li>Don't go and add things nilly willy above where you are. </li>
+<li>Consider inputs and outputs of each stage of your analysis. </li>
+</ul>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Think-before-you-add-any-code-above">Think before you add any code above<a class="anchor-link" href="#Think-before-you-add-any-code-above">&#182;</a></h1>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Don't-delete">Don't delete<a class="anchor-link" href="#Don't-delete">&#182;</a></h1>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Scratch-Pad-Extension">Scratch Pad Extension<a class="anchor-link" href="#Scratch-Pad-Extension">&#182;</a></h1><p><img src="figures/scratchpad.gif" alt="Scratchpad" width="600" align='left'></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="ExecuteTime-Extension">ExecuteTime Extension<a class="anchor-link" href="#ExecuteTime-Extension">&#182;</a></h1><center><img src="figures/executetime.png" alt="End" width="960"></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pay-attention-to-inputs-and-outputs">Pay attention to inputs and outputs<a class="anchor-link" href="#Pay-attention-to-inputs-and-outputs">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="figures/inout1.png" alt="End" width="160" align="right">
+<img src="figures/inout2.png" alt="End" width="160" align="left"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pay-attention-to-inputs-and-outputs">Pay attention to inputs and outputs<a class="anchor-link" href="#Pay-attention-to-inputs-and-outputs">&#182;</a></h1><center><img src="figures/dag.png" alt="End" width="360" align="center"></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Lastly...-know-when-to-get-out-of-the-notebook">Lastly... know when to get out of the notebook<a class="anchor-link" href="#Lastly...-know-when-to-get-out-of-the-notebook">&#182;</a></h1>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="DEMO">DEMO<a class="anchor-link" href="#DEMO">&#182;</a></h1><p><a href="https://cmawer.github.io/jupyter-trains/data-day-seattle-demo.html">https://cmawer.github.io/jupyter-trains/data-day-seattle-demo.html</a></p>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12440,34 +13041,74 @@ $( document ).ready(code_toggle);
 <h1 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h1>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Key-findings">Key findings<a class="anchor-link" href="#Key-findings">&#182;</a></h2><ul>
-<li>Key finding 1</li>
-<li>Key finding 2</li>
-</ul>
+<center><h4>To view SVDS speakers or to receive a copy <br /> of our slides, go to: www.svds.com/DDSea2016 </h4></center>
+<center><img src="figures/thankyou.png" alt="End" width="700"></center>
+<center><h3>chloe@svds.com | @chloemawer  </h3></center>
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Next-steps">Next steps<a class="anchor-link" href="#Next-steps">&#182;</a></h2><ul>
-<li>Next steps 1</li>
-<li>Next steps 2</li>
-</ul>
+<script>
 
-</div>
-</div>
-</div>
-    </div>
-  </div>
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        var update_scroll = function(event){
+          $(".reveal").scrollTop(0);
+        };
+
+        Reveal.addEventListener('slidechanged', update_scroll);
+
+    }
+);
+</script>
+
 </body>
+
+
 </html>
